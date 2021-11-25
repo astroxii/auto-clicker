@@ -1,5 +1,5 @@
-# python Auto Clicker
+# Python Auto Clicker
 
-A little script to use anywhere it is needed, made using pynput library and venv.
+A very simple customizable (future) Auto-Clicker for games, experiments, and more.
 
-Will add much more functionalities in future...
+Currently making basic implementations, will add graphical interface in future.
