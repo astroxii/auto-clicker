@@ -1,10 +1,13 @@
 from pynput import mouse, keyboard
-from pynput.mouse import Listener
+from pynput.keyboard import Listener
 from time import sleep
+
+ms = mouse.Controller()
+kbm = keyboard.Controller()
 
 
 def auto_click():
-    ms = mouse.Controller()
+    global ms
 
     i = 1000
 
