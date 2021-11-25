@@ -1,32 +1,23 @@
 from pynput import mouse, keyboard
 from pynput.keyboard import Listener
-from time import sleep
-
-ms = mouse.Controller()
-kbm = keyboard.Controller()
+from autoclicker import AutoClicker
 
 
-def auto_click():
-    global ms
+def on_press(k):
+    if k == keyboard.Key.space:
+        clicker.toggle()
 
-    i = 1000
-
-    while i > 0:
-        sleep(0.01)
-
-        i -= 1
-        ms.click(mouse.Button.left)
-        ms.click(mouse.Button.left)
+    elif k == keyboard.Key.esc:
+        clicker.exit()
+        listener.stop()
+        exit(0)
 
 
 if __name__ == "__main__":
 
-    def on_press(key):
-        if key == keyboard.KeyCode(char="-"):
-            exit(0)
-        elif key == keyboard.KeyCode(char="="):
-            auto_click()
-
+    ms = mouse.Controller()
+    clicker = AutoClicker(0.01, mouse.Button.left, ms)
+    clicker.start()
 
     with Listener(on_press=on_press) as listener:
         listener.join()
