@@ -15,7 +15,7 @@ class AutoClicker(Thread):
 
     def run(self):
         while self.isAppRunning:
-            print(self.isClicking)
+            print(" ")
             while self.isClicking:
                 self.mouse.click(self.button)
                 sleep(self.delay)
@@ -26,8 +26,6 @@ class AutoClicker(Thread):
         else:
             self.isClicking = True
 
-    def exit(self):
+    def stop(self):
         self.isAppRunning = False
         self.isClicking = False
-
-
