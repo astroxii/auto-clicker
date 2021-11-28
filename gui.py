@@ -1,20 +1,16 @@
 from tkinter import *
-from autoclicker import *
+from time import sleep
 
 
-class Window(Thread):
+class Window:
 
     def __init__(self, width, height, clicker):
-
-        super().__init__()
 
         self.width = width
         self.height = height
         self.clicker = clicker
         self.window = Tk()
         self.run_status = None
-
-        self.create_window()
 
     def create_window(self):
 
@@ -23,21 +19,28 @@ class Window(Thread):
         self.window.title("astroxii | Auto Clicker")
         x = int((self.window.winfo_screenwidth() / 2) - (self.width / 2))
         y = int((self.window.winfo_screenheight() / 2) - (self.height / 2))
-        self.window.geometry(f'{self.width}x{self.height}+{x}+{y}')
+        self.window.geometry(f'{self.width+4}x{self.height+4}+{x}+{y-25}')
         self.window.resizable(False, False)
 
         # Window Controls
 
-        title_label = Label(self.window, text="Auto Clicker")
-        title_label.pack()
+        background = Canvas(self.window, width=self.width, height=self.height, bg="black")
+        background.grid(columnspan=9, rowspan=9)
 
-        exit_button = Button(self.window, text="Exit", command=self.exit, padx=35, pady=10)
-        exit_button.pack(side=BOTTOM, ipadx=25, ipady=10)
+        title_label = Label(self.window, text="astroxii | Auto Clicker", bg="black", fg="#b300b3", font="Arial 25")
+        title_label.grid(column=4, row=0)
 
-        run_buttom = Button(self.window, text="Start/Stop", command=self.toggle_clicker, padx=35, pady=10)
-        run_buttom.pack(side=TOP, ipadx=20, ipady=7.5)
-        self.run_status = Label(self.window, text="Clicker is off.")
-        self.run_status.pack(side=TOP, ipadx=2, ipady=2)
+        exit_button = Button(self.window, text="Exit",
+                             command=self.exit, padx=10, pady=2.5, bg="red", fg="white", font="Arial 15")
+        exit_button.grid(column=0, row=8)
+
+        run_buttom = Button(self.window, text="Start / Stop",
+                            command=self.toggle_clicker, padx=15, pady=5, bg="#005ce6", fg="white", font="Arial 15")
+        run_buttom.grid(column=4, row=4)
+        
+        self.run_status = Label(self.window, text="Clicker is off, press [CTRL] to toggle.",
+                                bg="black", fg="white", font="Arial 16")
+        self.run_status.grid(column=4, row=5)
 
         # Events
 
@@ -49,10 +52,21 @@ class Window(Thread):
 
     def toggle_clicker(self):
 
-        sleep(3)
-        self.run_status.configure(text="Clicking, press [CTRL] to stop.")
-        self.window.iconify()
+        sleep(2)
         self.clicker.toggle()
+
+        if self.clicker.isClicking:
+            self.run_status.configure(text="Clicking, press [CTRL] to toggle.")
+            self.window.iconify()
+        else:
+            self.run_status.configure(text="Clicker is off, press [CTRL] to toggle.")
+
+    def update(self):
+        if self.clicker.isClicking:
+            self.run_status.configure(text="Clicking, press [CTRL] to toggle.")
+            self.window.iconify()
+        else:
+            self.run_status.configure(text="Clicker is off, press [CTRL] to toggle.")
 
     def exit(self):
 

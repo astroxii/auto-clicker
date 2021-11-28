@@ -1,6 +1,6 @@
 from gui import *
 from autoclicker import *
-#from listener import *
+from pynput import keyboard
 
 
 if __name__ == "__main__":
@@ -8,8 +8,13 @@ if __name__ == "__main__":
     clicker = AutoClicker(0, 0.01, mouse.Button.left)
     clicker.start()
 
-    window = Window(500, 500, clicker)
-    window.start()
+    window = Window(700, 500, clicker)
 
-    #listener = Listener(clicker)
-    #listener.start()
+    def on_press(k):
+        if k == keyboard.Key.ctrl_l:
+            clicker.toggle()
+            window.update()
+
+    with keyboard.Listener(on_press=on_press) as kbm_listener:
+        window.create_window()
+        kbm_listener.join()
