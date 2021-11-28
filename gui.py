@@ -17,6 +17,9 @@ class Window:
         # Window Basics
 
         self.window.title("astroxii | Auto Clicker")
+        icon = PhotoImage(file="./clickerIcon.png")
+        self.window.iconphoto(True, icon)
+
         x = int((self.window.winfo_screenwidth() / 2) - (self.width / 2))
         y = int((self.window.winfo_screenheight() / 2) - (self.height / 2))
         self.window.geometry(f'{self.width+4}x{self.height+4}+{x}+{y-25}')
