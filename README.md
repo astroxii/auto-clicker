@@ -1,5 +1,4 @@
-# Python Auto Clicker
+# Python Auto Clicker 
 
-A very simple customizable (future) Auto-Clicker for games, experiments, and more.
-
-Currently making basic implementations, will add graphical interface in future.
+A simple, (soon) customizable, Auto-Clicker application for any purpose, made in Python and with _pynput_ and _tkinter_ libraries.
+Currently has a on/off GUI control, and accepts on/off **[CTRL]** key command. Will become fully usable in future, with additions as scheduled clicks, start and click delay choosing, and more.
