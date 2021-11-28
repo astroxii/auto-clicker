@@ -1,26 +1,15 @@
-#from gui import *
-from pynput import mouse, keyboard
-from pynput.keyboard import Listener
+from gui import *
 from autoclicker import *
+#from listener import *
 
 
 if __name__ == "__main__":
 
-    # window = create_window(500, 500)
-
-    ms = mouse.Controller()
-    clicker = AutoClicker(0.01, mouse.Button.left, ms)
+    clicker = AutoClicker(0, 0.01, mouse.Button.left)
     clicker.start()
 
-    def on_press(k):
-        if k == keyboard.Key.shift:
-            clicker.toggle()
+    window = Window(500, 500, clicker)
+    window.start()
 
-        elif k == keyboard.Key.esc:
-            clicker.stop()
-            listener.stop()
-            exit(0)
-
-
-    with Listener(on_press=on_press) as listener:
-        listener.join()
+    #listener = Listener(clicker)
+    #listener.start()
