@@ -1,11 +1,11 @@
-from gui import *
+from GUI import *
 from autoclicker import *
 from pynput import keyboard
 
 
 if __name__ == "__main__":
 
-    clicker = AutoClicker(0, 0.01, mouse.Button.left)
+    clicker = AutoClicker(0, 0.5, mouse.Button.left)
     clicker.start()
 
     window = Window(700, 500, clicker)

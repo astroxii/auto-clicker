@@ -28,10 +28,7 @@ class AutoClicker(Thread):
                 sleep(self.delay)
 
     def toggle(self):
-        if self.isClicking:
-            self.isClicking = False
-        else:
-            self.isClicking = True
+        self.isClicking = not self.isClicking
 
     def stop(self):
         self.isAppRunning = False

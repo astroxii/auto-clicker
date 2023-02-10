@@ -17,8 +17,8 @@ class Window:
         # Window Basics
 
         self.window.title("astroxii | Auto Clicker")
-        icon = PhotoImage(file="./clickerIcon.png")
-        self.window.iconphoto(True, icon)
+        #icon = PhotoImage(file="/res/images/clickerIcon.png")
+        #self.window.iconphoto(True, icon)
 
         x = int((self.window.winfo_screenwidth() / 2) - (self.width / 2))
         y = int((self.window.winfo_screenheight() / 2) - (self.height / 2))
@@ -55,7 +55,6 @@ class Window:
 
     def toggle_clicker(self):
 
-        sleep(2)
         self.clicker.toggle()
 
         if self.clicker.isClicking:
