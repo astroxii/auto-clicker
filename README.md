@@ -12,4 +12,6 @@ Simple auto clicker application for any purpose. Made with Python, Tkinter and P
 * Click quantity;
 * Click delay;
 
+> Currently only usable on an IDE or IDLE.
+
 **astroxii @ 2021 - 2023**
