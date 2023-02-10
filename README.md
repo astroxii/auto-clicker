@@ -1,4 +1,15 @@
-# Python Auto Clicker 
+# Auto Clicker 
 
-A simple, (soon) customizable, Auto-Clicker application for any purpose, made in Python and with _pynput_ and _tkinter_ libraries.
-Currently has a on/off GUI control, and accepts on/off **[CTRL]** key command. Will become fully usable in future, with additions as scheduled clicks, start and click delay choosing, and more.
+Simple auto clicker application for any purpose. Made with Python, Tkinter and Pynput.
+
+## Features
+
+* Left Mouse Button clicks with On/Off control on GUI or by CTRL key.
+
+## To be added
+
+* Button choose;
+* Click quantity;
+* Click delay;
+
+**astroxii @ 2021 - 2023**
