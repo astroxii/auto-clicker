@@ -1,4 +1,6 @@
-# Auto Clicker 
+# Auto Clicker
+
+[![license](https://img.shields.io/github/license/astroxii/auto-clicker.svg)](https://github.com/astroxii/auto-clicker/blob/main/LICENSE)
 
 Simple auto clicker application for any purpose. Made with Python, Tkinter and Pynput.
 
